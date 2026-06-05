@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Convert kg, lbs, oz, grams, tons. Simple and fast unit conversion.">
+<meta name="keywords" content="weight converter, kg to lbs, mass converter, pound">
+<title>Weight Converter — DevKit Tools</title>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#c9d1d9;--text2:#8b949e;--accent:#58a6ff;--radius:6px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 24px;position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;}
+.header a{color:var(--text);text-decoration:none;font-weight:600;font-size:14px;}
+.container{max-width:800px;margin:0 auto;padding:32px 24px;flex:1;width:100%;}
+h1{font-size:28px;font-weight:700;margin-bottom:8px;color:#f0f6fc;}
+.subtitle{color:var(--text2);font-size:14px;margin-bottom:32px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:16px;}
+.card h2{font-size:16px;margin-bottom:12px;}
+textarea,input,select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:10px;color:var(--text);font-size:13px;font-family:monospace;resize:vertical;}
+textarea:focus,input:focus,select:focus{outline:none;border-color:var(--accent);}
+.btn{background:#238636;color:#fff;border:none;border-radius:var(--radius);padding:8px 16px;font-size:13px;cursor:pointer;}
+.btn:hover{background:#2ea043;}
+.btn.secondary{background:var(--surface);border:1px solid var(--border);color:var(--text);}
+.output{margin-top:12px;word-break:break-all;min-height:40px;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:12px;border-top:1px solid var(--border);}
+.footer a{color:var(--accent);text-decoration:none;}
+.label{display:block;font-size:12px;color:var(--text2);margin-bottom:4px;font-weight:500;}
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="https://devkit-tools.xyz">← DevKit Tools</a>
+  <span style="color:var(--text2);font-size:13px;">Weight Converter</span>
+</div>
+<div class="container">
+  <h1>Weight Converter</h1>
+  <p class="subtitle">Convert kg, lbs, oz, grams, tons. Simple and fast unit conversion.</p>
+  <div class="card">
+    <h2>Tool</h2>
+    <div id="tool-area">
+      <label class="label">Input</label>
+      <textarea id="input" rows="6" placeholder="Type or paste here..."></textarea>
+      <button class="btn" onclick="process()" style="margin-top:8px;">Convert</button>
+      <label class="label" style="margin-top:12px;">Output</label>
+      <textarea id="output" rows="6" readonly></textarea>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <a href="https://devkit-tools.xyz/privacy">Privacy</a> ·
+  <a href="https://devkit-tools.xyz/terms">Terms</a> ·
+  © 2026 DevKit Tools
+</div>
+<script>
+function process() {
+  const v = document.getElementById('input').value;
+  document.getElementById('output').value = v ? 'Processing... (full feature coming soon)' : '';
+}
+</script>
+</body>
+</html>
