@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="Convert between kg, lbs, oz, grams, tons"><title>Weight Converter — DevKit Tools</title><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="Convert between kg, lbs, oz, grams, tons"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y=".9em" font-size='90'>🛠</text></svg>">
+<title>Weight Converter — DevKit Tools</title><style>
 :root{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#c9d1d9;--accent:#58a6ff;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 16px;}
@@ -10,11 +12,12 @@ select{width:100%;background:var(--bg);border:1px solid var(--border);border-rad
 .results{display:grid;gap:6px;}
 .r{display:flex;justify-content:space-between;padding:10px 12px;background:var(--bg);border-radius:6px;font-size:13px;}
 .r .val{color:var(--accent);font-weight:600;}
-</style></head><body><div class="card"><h1>⚖️ Weight</h1>
+*:focus-visible{outline:2px solid #58a6ff;outline-offset:2px}::selection{background:rgba(88,166,255,0.3);color:#fff}</style></head><body><div class="card"><h1>⚖️ Weight</h1>
 <input type="number" id="val" value="1" oninput="conv()">
 <select id="from" onchange="conv()"><option value="kg" selected>Kilograms</option><option value="lb">Pounds</option><option value="oz">Ounces</option><option value="g">Grams</option><option value="t">Metric Tons</option><option value="st">Stone</option></select>
 <div class="results" id="results"></div></div>
 <script>
+'use strict';
 const toKg={kg:1,lb:0.453592,oz:0.0283495,g:0.001,t:1000,st:6.35029};
 const units=Object.keys(toKg);
 function conv(){const v=parseFloat(document.getElementById('val').value)||0;const f=document.getElementById('from').value;const kg=v*toKg[f];document.getElementById('results').innerHTML=units.filter(u=>u!==f).map(u=>'<div class="r"><span>'+u+'</span><span class="val">'+(kg/toKg[u]).toFixed(4)+'</span></div>').join('')}conv();
